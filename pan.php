@@ -1,4 +1,5 @@
 // can be used to send comands to Panasonic TV
+// link to code http://forums.indigodomo.com/viewtopic.php?t=11312&f=11
 <?php
 $action = $_GET['action'];
 $input = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
