@@ -1,0 +1,20 @@
+#Used to auto start the viera server downloaded from here https://github.com/samuelmatis/viera-control
+#  Put it in this folder /etc/systemd/system/
+
+[Unit]
+Description=Node.js Viera Server
+#Requires=After=mysql.service       # Requires the mysql service to run first
+
+[Service]
+ExecStart=/usr/bin/node /usr/lib/node_modules/viera.js/server/server.js
+Restart=always
+RestartSec=10                       # Restart service after 10 seconds if node service crashes
+StandardOutput=syslog               # Output to syslog
+StandardError=syslog                # Output to syslog
+SyslogIdentifier=nodejs-example
+#User=root
+#Group=root
+Environment=NODE_ENV=production PORT=3000
+
+[Install]
+WantedBy=multi-user.target
